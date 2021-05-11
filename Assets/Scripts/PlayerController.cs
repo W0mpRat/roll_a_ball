@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public float speed = 10.0f;
     private Rigidbody rb;
     private float movementX;
     private float movementY;
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate() 
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-        rb.AddForce(movement);
+        rb.AddForce(movement * speed);
     }
 
     void OnMove(InputValue movementValue)
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
         // Function body
         Vector2 movementVector = movementValue.Get<Vector2>();
 
-        movementX = movementVector.x * 10.0f;
-        movementY = movementVector.y * 10.0f;
+        movementX = movementVector.x;
+        movementY = movementVector.y;
     }
 }
