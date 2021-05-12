@@ -12,7 +12,12 @@ public class CameraControllerChase : MonoBehaviour
     {
         GameObject gameObject1 = GameObject.Find("Player");
         player = gameObject1;
-        offsetZ = GetComponent<Transform>().position.z;
+
+        // Old way
+        // offsetZ = GetComponent<Transform>().position.z;
+
+        // New way
+        offsetZ = this.transform.position.z;
     }
 
     // Update is called once per frame
@@ -21,7 +26,7 @@ public class CameraControllerChase : MonoBehaviour
         // Transform playerTrans = player.GetComponent<Transform>();
         Vector3 playerPosition = player.transform.position;
 
-        // One note here, don't need to get own transform, can just use transform (see biff below)
+        // One note here, don't need to get own transform, can just use transform or this.transform (see biff below)
         Transform cameraTransform = GetComponent<Transform>();
 
         Transform biff = this.transform;
