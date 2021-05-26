@@ -20,8 +20,8 @@ public class CameraControllerChase : MonoBehaviour
         offsetZ = this.transform.position.z;
     }
 
-    // Update is called once per frame
-    void Update()
+    // Update is called once per frame. For a follow camera it's recommended to use LateUpdate
+    void LateUpdate()
     {
         // Transform playerTrans = player.GetComponent<Transform>();
         Vector3 playerPosition = player.transform.position;
